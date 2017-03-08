@@ -10,6 +10,13 @@ import (
 	"gopkg.in/h2non/filetype.v0"
 )
 
+// @Title index
+// @Description Serves as JSON the current imaginary, bimg and libvips versions.
+// @Accept  application/json
+// @Produce  application/json
+// @Success 200 {array}  Versions
+// @Failure 400 {object} Error    "Not found"
+// @Router / [get]
 func indexController(w http.ResponseWriter, r *http.Request) {
 	if r.URL.Path != "/" {
 		ErrorReply(r, w, ErrNotFound, ServerOptions{})
@@ -21,6 +28,12 @@ func indexController(w http.ResponseWriter, r *http.Request) {
 	w.Write(body)
 }
 
+// @Title health
+// @Description Provides some useful statistics about the server stats.
+// @Accept  application/json
+// @Produce  application/json
+// @Success 200 {array}  HealthStats
+// @Router /health [get]
 func healthController(w http.ResponseWriter, r *http.Request) {
 	health := GetHealthStats()
 	body, _ := json.Marshal(health)
@@ -92,6 +105,12 @@ func imageHandler(w http.ResponseWriter, r *http.Request, buf []byte, Operation 
 	w.Write(image.Body)
 }
 
+// @Title form
+// @Description Serves an ugly HTML form, just for testing/playground purposes.
+// @Accept  text/html
+// @Produce  application/json
+// @Success 200 {string}
+// @Router /form [get]
 func formController(w http.ResponseWriter, r *http.Request) {
 	operations := []struct {
 		name   string

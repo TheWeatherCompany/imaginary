@@ -1,3 +1,15 @@
+// @APIVersion 1.0.0
+// @APITitle Web Viking Axe
+// @APIDescription Weather.com Image Cutting
+// @InfoTitle Web Viking Axe
+// @InfoDescription Weather.com Image Cutting
+// @InfoVersion 1.0.1
+// @Host
+// @Contact travis.smith@weather.com
+// @TermsOfServiceUrl http://weather.com/
+// @License BSD
+// @LicenseUrl http://opensource.org/licenses/BSD-2-Clause
+// @BasePath http://imaginary-images.os-app.dev-001.arch.weather.com/api/
 package main
 
 import (
