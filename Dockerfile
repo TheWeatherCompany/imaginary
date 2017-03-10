@@ -34,7 +34,7 @@ RUN go get -u golang.org/x/net/context
 RUN go get -u github.com/h2non/imaginary
 
 # Run the outyet command by default when the container starts.
-ENTRYPOINT ["/go/bin/imaginary"]
+ENTRYPOINT ["/go/bin/imaginary", "-enable-url-source", "-allowed-origins", "https://weather.com,https://s.w-x.co", "-path-prefix", "/api/v1"]
 
 # Expose the server TCP port
 EXPOSE 9000
